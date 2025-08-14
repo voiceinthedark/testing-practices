@@ -13,7 +13,15 @@ class Utils{
    * */
   static capitalize(input){
    return input[0].toUpperCase() + input.slice(1) 
+  }
 
+  /**
+   * @static
+   * @method to reverse a string 
+   * @param {string} input 
+   * */
+  static reverseString(input){
+    return input.split('').reverse().join('')
   }
   
 }
