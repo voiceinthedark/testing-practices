@@ -70,6 +70,21 @@ class Utils {
     return String.fromCodePoint((code + shift - start) % 26 + start)
   }
 
+  /**
+   * @static
+   * @method to analyze the array provided
+   * @param {Array} arr 
+   * @returns {object}
+   * */
+  static analyzeArray(arr){
+    return {
+      average: arr.sort((a,b) => a - b)[arr.length/2],
+      min: arr.sort((a, b) => a - b)[0],
+      max: arr.sort((a, b) => a - b).slice(-1)[0],
+      length: arr.length,
+    }
+  }
+
 }
 
 export default Utils;

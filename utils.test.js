@@ -60,12 +60,42 @@ describe('Utils static class', () => {
       ['ThE cloud. RuleR TemplE', 12, 'FtQ oxagp. DgxqD FqybxQ']
     ]
 
-    test.each(tableCaesar)('%s shifted %d characters should give %s', 
+    test.each(tableCaesar)('%s shifted %d characters should give %s',
       (input, shift, output) => {
         expect(Utils.caesarCipher(input, shift)).toBe(output)
-    })
-
+      })
   })
 
+  describe('Analyze array tests', () => {
+    test('Analyze an array should return an object', () => {
+      expect(Utils.analyzeArray([])).toBeInstanceOf(Object)
+    })
 
+    test('the object returned should have an average property', () => {
+      expect(Utils.analyzeArray([])).toHaveProperty('average')
+    })
+    test('the object returned should have an max property', () => {
+      expect(Utils.analyzeArray([])).toHaveProperty('max')
+    })
+    test('the object returned should have an min property', () => {
+      expect(Utils.analyzeArray([])).toHaveProperty('min')
+    })
+    test('the object returned should have an length property', () => {
+      expect(Utils.analyzeArray([])).toHaveProperty('length')
+    })
+
+    test('the min of the array should return 1', () => {
+      expect(Utils.analyzeArray([1,2,8,3,6,4])).toHaveProperty('min', 1)
+    })
+    test('average should be 4', () => {
+      expect(Utils.analyzeArray([1,2,8,3,6,4])).toHaveProperty('average', 4)
+    })
+    test('max should be 8', () => {
+      expect(Utils.analyzeArray([1,2,8,3,6,4])).toHaveProperty('max', 8)
+    })
+    test('length should be 6', () => {
+      expect(Utils.analyzeArray([1,2,8,3,6,4])).toHaveProperty('length', 6)
+    })
+  })
 })
+
